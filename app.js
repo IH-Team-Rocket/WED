@@ -16,6 +16,8 @@ app.use(logger("dev"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
+require("./config/db.config");
+
 app.use(passport.initialize());
 app.use(passport.session());
 
