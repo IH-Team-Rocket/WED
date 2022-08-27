@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const TYPES = ["user", "organiser"];
+
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_PATTERN = /^.{8,}$/i;
@@ -26,6 +28,12 @@ const userSchema = new mongoose.Schema({
     googleID: {
         type: String
     },
+    type: {
+        type: String,
+        enum: TYPES,
+        required: true,
+        default: "user"
+    }
 });
 
 userSchema.pre("save", function (next) {
