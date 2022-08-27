@@ -16,4 +16,8 @@ const fileUploader = require('../config/cloudinary.config'); */
 // MISC
 router.get("/", miscController.home);
 
+//AUTH
+router.get("/register", authController.register);
+router.post("/register", authController.doRegisterOrganiser);
+
 module.exports = router
