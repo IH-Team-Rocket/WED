@@ -30,7 +30,13 @@ const weddingSchema = new mongooseSchema({
         coordinates: {
           type: [Number],
           required: true
-        }
       }
+    },
+    guests: {
+      type: Number,
+      required: true,
+      min: 0,
+      max: 499,
+    }
 })
 

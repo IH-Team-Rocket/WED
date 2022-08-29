@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const TYPES = ["user", "organiser"];
+const TYPES = ["user", "organiser", "plusOne"];
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -32,7 +32,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: TYPES,
         required: true,
-    }
+    },
+    kids: {
+      type: Number,
+      min: 0,
+      max: 3
+    },
 });
 
 userSchema.pre("save", function (next) {

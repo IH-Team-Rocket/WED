@@ -20,7 +20,7 @@ module.exports.doRegister = (req, res, next) => {
         } else {
             return User.create(user)
               .then((userCreated) => {
-                res.redirect("/profile")
+                res.redirect("/user/profile")
               })
         }
       })
@@ -61,6 +61,7 @@ module.exports.doRegisterOrganiser = (req, res, next) => {
 }
 
 const login = (req, res, next, provider) => {
+  console.log("entro")
     passport.authenticate(provider || 'local-auth', (err, user, validations) => {
       if (err) {
         next(err)
@@ -86,9 +87,14 @@ const login = (req, res, next, provider) => {
     login(req, res, next);
   };
   
-/*   module.exports.doLoginGoogle = (req, res, next) => {
+ module.exports.doLoginGoogle = (req, res, next) => {
     login(req, res, next, 'google-auth')
-  }; */
+  };
+  
+ module.exports.doUserLoginGoogle = (req, res, next) => {
+    req.isRegularUser = true
+    login(req, res, next, 'google-auth')
+  };
   
   module.exports.logout = (req, res, next) => {
     req.logout(() => res.redirect('/login'))
