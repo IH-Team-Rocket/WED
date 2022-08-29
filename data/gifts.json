@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Vaina Anakin",
+    "description": "Lucas ipsum dolor sit amet boss dexter cato thisspias qu wyl kaminoan quelli saurin tof. Bothan anakin mace organa. Yoda kanos defel veila tchuukthai walon hutt. Chommell calamari kenobi anomid ackbar mygeeto kal. Wessell khai sing quee verpine onimi.",
+    "price": 5000000,
+    "image": "",
+    "link": "",
+    "selected": false
+  },
+  {
+    "name": "Sable Conde Dooku",
+    "description": "Cracken jar shadda firmus dulok shimrra mustafar. Kal gavyn moff darth talortai. Ruurian vao nar teneniel darth. Mustafarian orrin gonk quarren taun droopy pa'lowick. Skywalker ozzel cathar iridonian talz organa umbaran hutt tharin. Dagobah gavyn kuat bothawui zorba panaka.",
+    "price": "1500000",
+    "image": "",
+    "link": "",
+    "selected": false
+  },
+  {
+    "name": "Casco Mandaloriano",
+    "description": "Onimi shaak bossk dor endocott breha rahn. Anthos vong endocott organa deliah aparo gilad darth duro. Derlin jobal naboo rakata phlog darth. Yavin padmé paaerduag nadd ooryl tyranus gwurran leia felucia. ",
+    "price": "2800000",
+    "image": "",
+    "link": "",
+    "selected": false
+  }
+  
+]
