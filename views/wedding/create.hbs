@@ -1,0 +1,81 @@
+<div class="row justify-content-center mt-4">
+  <div class="col col-sm-8 col-md-6 col-lg-4">
+    <div class="intro-register-img mb-4">
+      <img src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png" width="100" class="mx-auto d-block" alt="intro" >
+    </div>
+    <form action="/wedding/create" method="post">
+      <div class="input-group mb-2">
+        <input
+          type="text"
+          name="title"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.name}}is-invalid{{/if}}"
+          placeholder="Title"
+          aria-label="Wedding Title"
+          value="{{ wedding.title }}"
+        >
+        {{#if errors.title}}<div class="invalid-feedback">{{ errors.title }}</div>{{/if}}
+      </div>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          name="partnerOne"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.partnerOne}}is-invalid{{/if}}"
+          placeholder="Partner 1"
+          aria-label="Partner 1"
+        >
+        {{#if errors.partnerOne}}<div class="invalid-feedback">{{ errors.partnerOne }}</div>{{/if}}
+      </div>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          name="partnerTwo"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.partnerTwo}}is-invalid{{/if}}"
+          placeholder="Partner 2"
+          aria-label="Partner 2"
+        >
+        {{#if errors.partnerTwo}}<div class="invalid-feedback">{{ errors.partnerTwo }}</div>{{/if}}
+      </div>
+
+      <div class="input-group mb-2">
+        <input
+          type="textarea"
+          name="description"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.description}}is-invalid{{/if}}"
+          placeholder="Description"
+          aria-label="Description"
+          value="{{ wedding.description }}"
+        >
+        {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
+      </div>
+
+      <div class="input-group mb-2">
+        <input
+          type="number"
+          name="guests"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.guests}}is-invalid{{/if}}"
+          placeholder="Guests"
+          aria-label="Guests"
+          value="{{ wedding.guests }}"
+        >
+        {{#if errors.guests}}<div class="invalid-feedback">{{ errors.guests }}</div>{{/if}}
+      </div>
+
+      {{!-- <div class="input-group mb-3">
+        <input
+          type="text"
+          name="location"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.location}}is-invalid{{/if}}"
+          placeholder="Location"
+          aria-label="Location"
+        >
+        {{#if errors.location}}<div class="invalid-feedback">{{ errors.location }}</div>{{/if}}
+      </div> --}}
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary bg-light-green border-0">Create Wedding</button>
+      </div>
+    </form>
+  </div>
+</div>

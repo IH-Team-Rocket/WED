@@ -4,6 +4,7 @@ const miscController = require("../controllers/misc.controller");
 const authController = require("../controllers/auth.controller");
 const authMiddlewares = require("../middlewares/authMiddleware");
 const usersController = require("../controllers/users.controller");
+const weddingController = require("../controllers/wedding.controller")
 /*const productsController = require("../controllers/products.controller");
 const charactersController = require("../controllers/characters.controller");
 const fileUploader = require('../config/cloudinary.config'); */
@@ -29,5 +30,10 @@ router.get('/auth/google/callback', authMiddlewares.isNotAuthenticated, authCont
 router.get("/edit/:id", usersController.edit);
 router.post("edit/:id", usersController.doEdit);
 router.get("/profile", authMiddlewares.isAuthenticated, usersController.detail)
+
+//WEDDING
+router.get("/wedding/create", authMiddlewares.isAuthenticated, weddingController.create)
+router.post("/wedding/create", weddingController.doCreate)
+router.get("/wedding/:id", authController.isAuthenticated, weddingController.detail)
 
 module.exports = router

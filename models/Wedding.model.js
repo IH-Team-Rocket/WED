@@ -1,6 +1,6 @@
-const moongose = require("mongoose")
+const mongoose = require("mongoose");
 
-const weddingSchema = new mongooseSchema({
+const weddingSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -21,7 +21,7 @@ const weddingSchema = new mongooseSchema({
         required: true,
         minLength: 3,
     },
-    location: {
+    /* location: {
         type: {
           type: String,
           enum: ['Point'],
@@ -31,12 +31,15 @@ const weddingSchema = new mongooseSchema({
           type: [Number],
           required: true
       }
-    },
+    }, */
     guests: {
       type: Number,
       required: true,
       min: 0,
       max: 499,
     }
-})
+});
 
+const Wedding = mongoose.model("Wedding", weddingSchema);
+
+module.exports = Wedding;
