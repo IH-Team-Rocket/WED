@@ -16,3 +16,16 @@ module.exports.doCreate = (req, res, next) => {
     next(err);
   });
 }
+
+module.exports.detail = (req, res, next) => {
+  const { id } = req.params
+
+  Wedding.findById(id)
+    .then((wedding) => {
+      res.render("wedding/detail", { wedding })
+    })
+    .catch((err) => {
+      console.error(err);
+      next(createError(404, "Wedding not found"));
+    });
+}

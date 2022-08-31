@@ -34,6 +34,6 @@ router.get("/profile", authMiddlewares.isAuthenticated, usersController.detail)
 //WEDDING
 router.get("/wedding/create", authMiddlewares.isAuthenticated, weddingController.create)
 router.post("/wedding/create", weddingController.doCreate)
-router.get("/wedding/:id", authController.isAuthenticated, weddingController.detail)
+router.get("/wedding/:id", authMiddlewares.isAuthenticated, weddingController.detail)
 
 module.exports = router
