@@ -26,10 +26,10 @@ app.use(passport.session());
 
 hbs.registerPartials(__dirname + "/views/partials");
 
-/* app.use((req, res, next) => {
+app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
-}); */
+});
   
 const router = require("./config/index.routes");
 app.use(router);

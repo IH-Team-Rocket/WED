@@ -4,7 +4,19 @@ const createError = require("http-errors")
 
 module.exports.edit = (req, res, next) => {
   const { id } = req.params
-  res.render(`/edit/${id}`)
+
+  User.findById(id)
+    .then( user=> {
+      if (user.email) {
+        res.render(`/edit/${id}`)
+      } else {
+        res.render(`/newedit/${id}`)
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  
 }
 
 module.exports.doEdit = (req, res, next) => {
@@ -18,6 +30,7 @@ module.exports.doEdit = (req, res, next) => {
                  res.redirect(200, "/user/:id")
               })
               .catch(err => {
+                error.log(err);
               })
            }
     })

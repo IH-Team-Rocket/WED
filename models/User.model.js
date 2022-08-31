@@ -11,18 +11,18 @@ const SALT_ROUNDS = 10;
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Name is required"],
         minLength: [3, "Name must contain at least 3 characters"]
     },
     email: {
         type: String,
-        required: [true, "Email is required"],
+        trim: true,
+        index: true,
         unique: true,
+        sparse: true,
         match: [EMAIL_PATTERN, "Email pattern does not match"],
     },
     password: {
         type: String,
-        required: [true, "Password is required"],
         match: [PASSWORD_PATTERN, "Password must contain 8 characters"],
     },
     googleID: {
@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
     type: {
         type: String,
         enum: TYPES,
+        default: "user",
         required: true,
     },
     kids: {
@@ -38,6 +39,11 @@ const userSchema = new mongoose.Schema({
       min: 0,
       max: 3
     },
+    weddings: {
+      type: [mongoose.Schema.Types.ObjectId],
+      required: true,
+      ref: "Wedding"
+    }
 });
 
 userSchema.pre("save", function (next) {
