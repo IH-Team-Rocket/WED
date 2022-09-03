@@ -25,7 +25,7 @@ module.exports.doRegister = (req, res, next) => {
         }
       })
       .catch((err) => {
-        if (err instanceof moongose.Error.ValidationError) {
+        if (err instanceof mongoose.Error.ValidationError) {
             renderWithErrors(err.errors)
         } else {
             next(err)
@@ -52,7 +52,7 @@ module.exports.doRegisterOrganiser = (req, res, next) => {
         }
       })
       .catch((err) => {
-        if (err instanceof moongose.Error.ValidationError) {
+        if (err instanceof mongoose.Error.ValidationError) {
             renderWithErrors(err.errors)
         } else {
             next(err)

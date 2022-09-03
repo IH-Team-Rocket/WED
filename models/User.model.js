@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const randToken = require('rand-token');
 
 const TYPES = ["user", "organiser", "plusOne"];
 
@@ -43,6 +44,12 @@ const userSchema = new mongoose.Schema({
       type: [mongoose.Schema.Types.ObjectId],
       required: true,
       ref: "Wedding"
+    },
+    token: {
+      type: String,
+      default: function() {
+        return randToken.generate(64);
+      }
     }
 });
 
