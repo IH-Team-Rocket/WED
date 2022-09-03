@@ -9,20 +9,20 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
   Wedding.create(req.body)
-  .then((wedding) => {
-    const users = Array(wedding.guests).fill('.').map(() => {
-      return new User({ weddings: [wedding.id], email: null }).save()
-    })
-    return Promise.all(users)
-      .then( createdUsers => {
-        console.log(createdUsers);
-        res.redirect(`/wedding/${wedding._id}`);
+    .then((wedding) => {
+      const users = Array(wedding.guests).fill('.').map(() => {
+        return new User({ weddings: [wedding.id], email: null }).save()
       })
-  })
-  .catch((err) => {
-    console.error(err);
-    next(err);
-  });
+      return Promise.all(users)
+        .then( createdUsers => {
+          console.log(createdUsers);
+          res.redirect(`/wedding/${wedding._id}`);
+        })
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err);
+    });
 }
 
 module.exports.detail = (req, res, next) => {
