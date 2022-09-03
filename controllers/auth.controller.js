@@ -8,7 +8,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.doRegister = (req, res, next) => {
     const user = req.body
-    user.type = "user"
+    
 
     const renderWithErrors = (errors) => {
         res.render("auth/register", { errors, user })
