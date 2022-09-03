@@ -11,7 +11,7 @@ module.exports.doCreate = (req, res, next) => {
   Wedding.create(req.body)
     .then((wedding) => {
       const users = Array(wedding.guests).fill('.').map(() => {
-        return new User({ weddings: [wedding.id], email: null }).save()
+        return new User({ weddings: [wedding.id], email: undefined }).save()
       })
       return Promise.all(users)
         .then( createdUsers => {
