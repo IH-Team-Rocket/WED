@@ -8,9 +8,9 @@ module.exports.edit = (req, res, next) => {
   User.findById(id)
     .then( user=> {
       if (user.email) {
-        res.render(`/edit/${id}`)
+        res.render(`user/edit/${id}`)
       } else {
-        res.render(`/newedit/${id}`)
+        res.render(`user/newedit/${id}`)
       }
     })
     .catch(err => {
