@@ -83,17 +83,16 @@ module.exports.doRegister = (req, res, next) => {
           console.log(user);
           if(!user.weddings.includes(fakeUser.weddings[0])){
             user.weddings.push(fakeUser.weddings[0])
-          user.save()
-          .then(() => {
-            res.render("auth/login")
-          })
-          .catch((err) => {
-            res.renderWithErrors("auth/login")
-          })
-        }else {
-          res.redirect('/login')
-        }
-          
+            user.save()
+              .then(() => {
+                res.render("auth/login")
+              })
+              .catch((err) => {
+                res.renderWithErrors("auth/login")
+              })
+          }else {
+            res.redirect('/login')
+          }
         })
       }else if(data.password) {
         User.findById(id)
