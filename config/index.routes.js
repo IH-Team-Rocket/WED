@@ -5,9 +5,7 @@ const authController = require("../controllers/auth.controller");
 const authMiddlewares = require("../middlewares/authMiddleware");
 const usersController = require("../controllers/users.controller");
 const weddingController = require("../controllers/wedding.controller")
-/*const productsController = require("../controllers/products.controller");
-const charactersController = require("../controllers/characters.controller");
-const fileUploader = require('../config/cloudinary.config'); */
+//const fileUploader = require('../config/cloudinary.config');
 
 const SCOPES = [
   "profile",

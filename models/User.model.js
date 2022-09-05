@@ -52,9 +52,6 @@ const userSchema = new mongoose.Schema({
         return randToken.generate(64);
       }
     }
-},
-{
-  toObject: { virtuals: true },
 });
 
 userSchema.pre("save", function (next) {
@@ -76,13 +73,6 @@ userSchema.methods.checkPassword = function (password) {
   const user = this;
   return bcrypt.compare(password, user.password);
 };
-
-userSchema.virtual('wedding', {
-  ref:'Wedding',
-  localField:'weddings',
-  foreignField:'_id',
-  justOne:  false
-});
 
 const User = mongoose.model("User", userSchema);
 

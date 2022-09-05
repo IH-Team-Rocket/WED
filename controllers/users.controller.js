@@ -38,17 +38,16 @@ module.exports.doEdit = (req, res, next) => {
 }
 
 module.exports.detail = (req, res, next) => {
-    const { id } = req.params
+    const { _id } = req.user
     
-    User.findById(id)
-      .populate("wedding")
+    User.findById(_id)
+      .populate("weddings")
       .then((user) => {
         res.render("user/profile", {user});
-        console.log(currentUser.weddings);
       })
       .catch((err) => {
         next(createError(404, "User not found"))
-      })
+      });
 }
 
 module.exports.register = (req, res, next) => {
@@ -74,40 +73,55 @@ module.exports.doRegister = (req, res, next) => {
   data.type = "user"
   
   const renderWithErrors = (errors, user) => {
-    console.log(errors);
     res.render("guest/edit", { errors, user })
   }
-
-  if(data.password) {
-    User.findById(id)
-      .then(user => {
-        if(user.token) {
-          user.checkPassword(data.password)
-            .then(result => {
-              if(!result) {
-                const { password, name, email } = data;
-                user.password = password;
-                user.name = name;
-                user.email = email;
-                user.token = null;
-      
-                console.log('USER', user)
-      
-                user.save()
-                  .then(user => {
-                    console.log('justo antes de redirect a login', user);
-                    res.redirect("/login")
-                  })
-                  .catch(err => {
-                    next(createError(404, "User not found"))
-                  })
-              } else {
-                renderWithErrors("password cannot match")
-              }
-            })
+  User.findOne({ email: data.email })
+    .then((user) => {
+      if(user){
+        User.findById(id)
+        .then((fakeUser) => {
+          console.log(user);
+          if(!user.weddings.includes(fakeUser.weddings[0])){
+            user.weddings.push(fakeUser.weddings[0])
+          user.save()
+          .then(() => {
+            res.render("auth/login")
+          })
+          .catch((err) => {
+            res.renderWithErrors("auth/login")
+          })
+        }else {
+          res.redirect('/login')
         }
-      })
-  }
-
-  
+          
+        })
+      }else if(data.password) {
+        User.findById(id)
+          .then(user => {
+            if(user.token) {
+              user.checkPassword(data.password)
+                .then(result => {
+                  if(!result) {
+                    const { password, name, email } = data;
+                    user.password = password;
+                    user.name = name;
+                    user.email = email;
+                    user.token = null;
+                
+                    user.save()
+                      .then(user => {
+                        console.log('justo antes de redirect a login', user);
+                        res.redirect("/login")
+                      })
+                      .catch(err => {
+                        next(createError(404, "User not found"))
+                      })
+                  } else {
+                    renderWithErrors("password cannot match")
+                  }
+                })
+            }
+          })
+      }
+    })
 }
