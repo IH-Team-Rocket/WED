@@ -1,6 +1,7 @@
 const User = require("../models/User.model");
 const mongoose = require("mongoose");
-const createError = require("http-errors")
+const createError = require("http-errors");
+const Wedding = require("../models/Wedding.model")
 
 module.exports.edit = (req, res, next) => {
   const { id } = req.params
@@ -40,9 +41,10 @@ module.exports.detail = (req, res, next) => {
     const { id } = req.params
     
     User.findById(id)
-      .populate(weddings)
+      .populate("wedding")
       .then((user) => {
-        res.render("user/profile", {user})
+        res.render("user/profile", {user});
+        console.log(currentUser.weddings);
       })
       .catch((err) => {
         next(createError(404, "User not found"))

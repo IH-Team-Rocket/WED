@@ -52,11 +52,13 @@ const userSchema = new mongoose.Schema({
         return randToken.generate(64);
       }
     }
+},
+{
+  toObject: { virtuals: true },
 });
 
 userSchema.pre("save", function (next) {
   const user = this;
-  console.log('hasheo en el pre save');
   if (user.isModified("password")) {
     bcrypt
       .hash(user.password, SALT_ROUNDS)
@@ -74,6 +76,13 @@ userSchema.methods.checkPassword = function (password) {
   const user = this;
   return bcrypt.compare(password, user.password);
 };
+
+userSchema.virtual('wedding', {
+  ref:'Wedding',
+  localField:'weddings',
+  foreignField:'_id',
+  justOne:  false
+});
 
 const User = mongoose.model("User", userSchema);
 
