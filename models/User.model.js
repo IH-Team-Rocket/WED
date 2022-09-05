@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const randToken = require('rand-token');
 
 const TYPES = ["user", "organiser", "plusOne"];
 
@@ -24,6 +25,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         match: [PASSWORD_PATTERN, "Password must contain 8 characters"],
+        required: true,
     },
     googleID: {
         type: String
@@ -43,12 +45,18 @@ const userSchema = new mongoose.Schema({
       type: [mongoose.Schema.Types.ObjectId],
       required: true,
       ref: "Wedding"
+    },
+    token: {
+      type: String,
+      default: function() {
+        return randToken.generate(64);
+      }
     }
 });
 
 userSchema.pre("save", function (next) {
   const user = this;
-
+  console.log('hasheo en el pre save');
   if (user.isModified("password")) {
     bcrypt
       .hash(user.password, SALT_ROUNDS)

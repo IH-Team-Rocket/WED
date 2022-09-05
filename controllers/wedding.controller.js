@@ -2,6 +2,7 @@ const Wedding = require("../models/Wedding.model");
 const mongoose = require("mongoose");
 const createError = require("http-errors");
 const User = require("../models/User.model");
+const randToken = require('rand-token');
 
 module.exports.create = (req, res, next) => {
   res.render("wedding/create")
@@ -11,7 +12,10 @@ module.exports.doCreate = (req, res, next) => {
   Wedding.create(req.body)
     .then((wedding) => {
       const users = Array(wedding.guests).fill('.').map(() => {
-        return new User({ weddings: [wedding.id], email: undefined }).save()
+        const randPass = (function() {
+          return randToken.generate(64);
+        })()
+        return new User({ weddings: [wedding.id], email: undefined, password: randPass }).save()
       })
       return Promise.all(users)
         .then( createdUsers => {

@@ -28,8 +28,10 @@ router.get('/auth/google/callback', authMiddlewares.isNotAuthenticated, authCont
 
 //USER
 router.get("/edit/:id", usersController.edit);
-router.post("edit/:id", usersController.doEdit);
+router.post("/edit/:id", usersController.doEdit);
 router.get("/profile", authMiddlewares.isAuthenticated, usersController.detail)
+router.get("/guest/:token", usersController.register);
+router.post("/guest/edit/:id", usersController.doRegister);
 
 //WEDDING
 router.get("/wedding/create", authMiddlewares.isAuthenticated, weddingController.create)
