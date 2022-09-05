@@ -38,6 +38,16 @@ const weddingSchema = new mongoose.Schema({
       min: 0,
       max: 499,
     }
+},
+{
+  toObject:{ virtuals: true }
+});
+
+weddingSchema.virtual('user', {
+  ref:'User',
+  localField:'_id',
+  foreignField:'weddings',
+  justOne: false
 });
 
 const Wedding = mongoose.model("Wedding", weddingSchema);

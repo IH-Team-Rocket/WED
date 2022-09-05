@@ -56,7 +56,6 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", function (next) {
   const user = this;
-  console.log('hasheo en el pre save');
   if (user.isModified("password")) {
     bcrypt
       .hash(user.password, SALT_ROUNDS)
