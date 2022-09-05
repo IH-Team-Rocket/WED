@@ -41,6 +41,11 @@ const userSchema = new mongoose.Schema({
       min: 0,
       max: 3
     },
+    weddings: {
+      type: [mongoose.Schema.Types.ObjectId],
+      required: true,
+      ref: "Wedding"
+    },
     token: {
       type: String,
       default: function() {

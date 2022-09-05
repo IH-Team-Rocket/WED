@@ -40,11 +40,12 @@ module.exports.detail = (req, res, next) => {
     const { id } = req.params
     
     User.findById(id)
+      .populate(weddings)
       .then((user) => {
-          res.render("user/profile", {user})
+        res.render("user/profile", {user})
       })
       .catch((err) => {
-          next(createError(404, "User not found"))
+        next(createError(404, "User not found"))
       })
 }
 
