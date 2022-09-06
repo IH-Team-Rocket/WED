@@ -10,10 +10,14 @@
     </ul>
   </div>
   <div class="buttons">
+    {{#if currentUser}}
     <a href="/login">Login</a>
     <button>
       <a href="/register">Create Wedding</a>
     </button>
+    {{else}}
+    <a href="/login">Logout</a>
+    {{/if}}
   </div>
 </nav>
 
