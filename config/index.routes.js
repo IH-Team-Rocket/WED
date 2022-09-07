@@ -36,8 +36,14 @@ router.post("/guest/edit/:id", usersController.doRegister);
 router.get("/wedding/create", authMiddlewares.isAuthenticated, weddingController.create)
 router.post("/wedding/create", weddingController.doCreate)
 router.get("/wedding/:id", authMiddlewares.isAuthenticated, weddingController.detail)
+
+//GIFT
 router.get("/wedding/:id/gifts", authMiddlewares.isAuthenticated, giftsController.list)
 router.get("/wedding/:id/createGift", authMiddlewares.isAuthenticated, giftsController.create)
 router.post("/wedding/:id/createGift", giftsController.doCreate)
+
+//TICKET
+router.get("/wedding/:id/ticket", authMiddlewares.isAuthenticated, ticketController.create)
+router.post("/wedding/:id/ticket", ticketController.doCreate)
 
 module.exports = router
