@@ -61,6 +61,13 @@ weddingSchema.virtual('gifts', {
   justOne: false
 });
 
+weddingSchema.virtual('tickets', {
+  ref: 'Ticket',
+  localField: '_id',
+  foreignField: 'wedding',
+  justOne: false
+});
+
 const Wedding = mongoose.model("Wedding", weddingSchema);
 
 module.exports = Wedding;
