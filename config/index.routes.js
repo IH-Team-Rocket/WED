@@ -22,7 +22,7 @@ router.get("/login", authMiddlewares.isNotAuthenticated, authController.login);
 router.post("/login", authController.doLogin);
 router.get('/login/google', authMiddlewares.isNotAuthenticated, passport.authenticate('google-auth', { scope: SCOPES  }))
 router.get('/auth/google/callback', authMiddlewares.isNotAuthenticated, authController.doLoginGoogle);
-//router.get("/logout", authMiddlewares.isAuthenticated, authController.logout);
+router.get("/logout", authMiddlewares.isAuthenticated, authController.logout);
 
 //USER
 router.get("/edit/:id", usersController.edit);
