@@ -4,7 +4,7 @@ const Wedding = require("../models/Wedding.model")
 
 module.exports.create = (req, res, next) => {
     const { id } = req.params
-    res.render("gifts/form")
+    res.render("gifts/form", {weddingId: id})
 }
 
 module.exports.doCreate = (req, res, next) => {
