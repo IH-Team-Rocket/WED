@@ -9,11 +9,10 @@
         {{#each user.weddings as |wedding|}}
           <p>{{wedding.title}}</p>
           <p>{{wedding.partnerOne}} & {{wedding.partnerTwo}}</p>
+          <a href="/wedding/{{wedding.id}}">Go To Wedding</a>
         {{/each}}
       </div>
       <a href="/wedding/create" class="btn btn-primary bg-light-green border-0">Create Wedding</a>
     </div>
   </div>
 </div>
-
-<a href=></a>
