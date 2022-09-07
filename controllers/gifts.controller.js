@@ -10,13 +10,11 @@ module.exports.create = (req, res, next) => {
 module.exports.doCreate = (req, res, next) => {
     const { id } = req.params
     req.body.wedding = id
-    console.log("id ", id);
     Gift.create(req.body)
         .then((gift) => {
             res.render("gifts/list", {weddingId: id})
         })
         .catch((err) => {
-            console.log("entro", err);
             res.render("gifts/form", {errors: err.errors})
         })
 }
