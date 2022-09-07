@@ -27,6 +27,11 @@ const giftSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
         default: false,
+    },
+    wedding: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Wedding"
     }
 });
 

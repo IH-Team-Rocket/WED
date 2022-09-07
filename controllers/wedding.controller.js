@@ -9,6 +9,8 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
+  req.body.admin = req.user.id
+
   Wedding.create(req.body)
     .then((wedding) => {
       const users = Array(wedding.guests).fill('.').map(() => {
@@ -19,7 +21,6 @@ module.exports.doCreate = (req, res, next) => {
       })
       return Promise.all(users)
         .then( createdUsers => {
-          console.log(createdUsers);
           res.redirect(`/wedding/${wedding._id}`);
         })
     })
@@ -37,7 +38,6 @@ module.exports.detail = (req, res, next) => {
       res.render("wedding/detail", { wedding })
     })
     .catch((err) => {
-      console.error(err);
       next(createError(404, "Wedding not found"));
     });
 }

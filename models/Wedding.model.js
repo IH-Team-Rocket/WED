@@ -37,6 +37,10 @@ const weddingSchema = new mongoose.Schema({
       required: true,
       min: 0,
       max: 499,
+    },
+    admin: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
     }
 },
 {
