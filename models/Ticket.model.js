@@ -18,6 +18,11 @@ const ticketSchema = new mongoose.Schema({
         required: true,
         default: false,
     },
+    wedding: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Wedding"
+    }
 });
 
 const Ticket = mongoose.model("Ticket", ticketSchema);

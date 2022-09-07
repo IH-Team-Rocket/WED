@@ -21,5 +21,11 @@ module.exports.doCreate = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
     const { id } = req.params
-    res.render("gifts/list", {weddingId: id})
+		Wedding.findById(id)
+			.populate("gifts")
+			.then(wedding => {
+				res.render("gifts/list", {weddingId: id, wedding})
+			})
+			.catch()
+    
 }

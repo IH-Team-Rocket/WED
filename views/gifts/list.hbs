@@ -1,3 +1,8 @@
 <h1>regalitos aqui</h1>
 
+{{#each wedding.gifts as |gift|}}
+<p>{{gift.name}}</p>
+
+{{/each}}
+
 <a href="/wedding/{{weddingId}}/createGift">Button</a>
