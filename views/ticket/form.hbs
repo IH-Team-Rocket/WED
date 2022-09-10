@@ -26,8 +26,8 @@
           aria-label="Bus"
           value="{{ ticket.bus }}"
         >
-        <option selected disabled hidden value="none" class="grey_color">Are you going by bus?</option>
-        <option value=".">Yes</option>
+        <option selected disabled hidden {{!-- value="none" --}} class="grey_color">Are you going by bus?</option>
+        <option value="true">Yes</option>
         <option value="">No</option>
         </select>
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
@@ -40,8 +40,8 @@
           aria-label="Hotel"
           value="{{ ticket.hotel }}"
         >
-        <option selected disabled hidden value="none" class="grey_color">Will you stay at the hotel?</option>
-        <option value=".">Yes</option>
+        <option selected disabled hidden {{!-- value="none" --}} class="grey_color">Will you stay at the hotel?</option>
+        <option value="true">Yes</option>
         <option value="">No</option>
         </select>
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
