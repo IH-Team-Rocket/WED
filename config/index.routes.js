@@ -47,4 +47,8 @@ router.post("/wedding/:id/createGift", giftsController.doCreate)
 router.get("/wedding/:id/ticket", authMiddlewares.isAuthenticated, ticketController.create)
 router.post("/wedding/:id/ticket", ticketController.doCreate)
 
+//DASHBOARD
+router.get("/wedding/:id/dashboard", authMiddlewares.isAdmin, dashboardController.dashboard)
+
+
 module.exports = router
