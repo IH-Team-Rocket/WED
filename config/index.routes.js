@@ -45,6 +45,6 @@ router.post("/wedding/:id/createGift", giftsController.doCreate)
 
 //TICKET
 router.get("/wedding/:id/ticket", authMiddlewares.isAuthenticated, ticketController.create)
-//router.post("/wedding/:id/ticket", ticketController.doCreate)
+router.post("/wedding/:id/ticket", ticketController.doCreate)
 
 module.exports = router
