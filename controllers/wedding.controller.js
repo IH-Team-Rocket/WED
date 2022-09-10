@@ -13,6 +13,14 @@ module.exports.doCreate = (req, res, next) => {
 
   Wedding.create(req.body)
     .then((wedding) => {
+      req.user.weddings.push(wedding.id)
+      req.user.save()
+      .then(() => {
+        res.redirect("/profile")
+      })
+      .catch((err) => {
+        res.renderWithErrors("user/profile")
+      })
       const users = Array(wedding.guests).fill('.').map(() => {
         const randPass = (function() {
           return randToken.generate(64);
@@ -20,9 +28,7 @@ module.exports.doCreate = (req, res, next) => {
         return new User({ weddings: [wedding.id], email: undefined, password: randPass }).save()
       })
       return Promise.all(users)
-        .then( createdUsers => {
-          res.redirect(`/wedding/${wedding._id}`);
-        })
+        .then()
     })
     .catch((err) => {
       console.error(err);

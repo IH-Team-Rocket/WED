@@ -12,7 +12,8 @@ module.exports.doCreate = (req, res, next) => {
     req.body.wedding = id
     Gift.create(req.body)
         .then((gift) => {
-            res.redirect(200, `/wedding/${id}/gifts`)
+            
+            res.redirect(`/wedding/${id}/gifts`)
         })
         .catch((err) => {
             res.render("gifts/form", {errors: err.errors})

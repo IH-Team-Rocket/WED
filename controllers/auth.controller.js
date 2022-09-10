@@ -61,23 +61,22 @@ module.exports.doRegisterOrganiser = (req, res, next) => {
 }
 
 const login = (req, res, next, provider) => {
-  console.log("entro")
-    passport.authenticate(provider || 'local-auth', (err, user, validations) => {
-      if (err) {
-        next(err)
-      } else if(!user) {
-        res.status(404).render('auth/login', { errors: validations.error })
-      } else {
-        req.login(user, (loginError) => {
-          if (loginError) {
-            next(loginError)
-          } else {
-            res.redirect('/profile')
-          }
-        })
-      }
-    })(req, res, next)
-  }
+  passport.authenticate(provider || 'local-auth', (err, user, validations) => {
+    if (err) {
+      next(err)
+    } else if(!user) {
+      res.status(404).render('auth/login', { errors: validations.error })
+    } else {
+      req.login(user, (loginError) => {
+        if (loginError) {
+          next(loginError)
+        } else {
+          res.redirect('/profile')
+        }
+      })
+    }
+  })(req, res, next)
+}
 
   module.exports.login = (req, res, next) => {
     res.render("auth/login");
