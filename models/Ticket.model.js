@@ -28,7 +28,17 @@ const ticketSchema = new mongoose.Schema({
         required: true,
         ref: "User"
     }
+},
+{
+    toObject:{ virtuals: true }
 });
+
+ticketSchema.virtual("userInfo", {
+    ref:"User",
+    localField:"user",
+    foreignField:"_id",
+    justOne: true
+})
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
 module.exports = Ticket

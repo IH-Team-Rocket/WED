@@ -46,6 +46,7 @@ router.post("/wedding/:id/createGift", giftsController.doCreate)
 //TICKET
 router.get("/wedding/:id/ticket", authMiddlewares.isAuthenticated, ticketController.create)
 router.post("/wedding/:id/ticket", ticketController.doCreate)
+router.get("/wedding/:id/ticket/list", ticketController.list)
 
 //DASHBOARD
 router.get("/wedding/:id/dashboard", authMiddlewares.isAdmin, dashboardController.dashboard)
