@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const ENLACE = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
+
 const giftSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -22,6 +24,7 @@ const giftSchema = new mongoose.Schema({
     link: {
         type: String,
         required: true,
+        match: ENLACE
     },
     selected: {
         type: Boolean,

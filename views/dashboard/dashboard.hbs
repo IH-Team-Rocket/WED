@@ -1,0 +1,19 @@
+<h1>{{wedding.title}}</h1>
+
+<h2>Tickets</h2>
+
+{{#each tickets as |ticket|}}
+
+<p>{{ticket.user.name}}</p>
+
+{{/each}}
+
+<h2>Gifts</h2>
+
+{{#each wedding.gifts as |gift|}}
+
+<p>{{gift.name}}</p>
+
+{{/each}}
+
+<a href="/wedding/{{wedding.id}}/createGift">Button</a>
