@@ -1,3 +1,5 @@
+const Wedding = require("../models/Wedding.model");
+
 module.exports.isNotAuthenticated = (req, res, next) => {
     if (req.isUnauthenticated()) {
       next();
@@ -14,10 +16,21 @@ module.exports.isNotAuthenticated = (req, res, next) => {
     }
   };
 
-  module.exports.isOrganiser = (req, res, next) => {
-    if(req.type === "organiser") {
-        next();
-    } else {
-        res.redirect("/")
-    }
+  module.exports.isWeddingAdmin = (req, res, next) => {
+    const { id } = req.params
+    const user = req.user
+
+    Wedding.findById(id)
+      .then(wedding => {
+				console.log(wedding.admin, user.id);
+        if(wedding.admin == user.id) {
+          next();
+      } else {
+          res.redirect("/profile")
+      }
+      })
+      .catch(err => {
+        console.error(err)
+      })
   };
+
