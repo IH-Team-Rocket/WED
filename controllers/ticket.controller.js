@@ -42,3 +42,17 @@ module.exports.doCreate = (req, res, next) => {
       })
       
 }
+
+module.exports.list = (req, res, next) => {
+    const weddingId = req.params.id
+
+    Ticket.find({ wedding: weddingId})
+      .populate("userInfo")
+      .then((tickets) => {
+        console.log(tickets);
+        res.render("ticket/list", {tickets})
+      })
+      .catch(() => {
+        console.log("holi");
+      })
+}
