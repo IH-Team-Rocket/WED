@@ -8,7 +8,12 @@ module.exports.dashboard = (req, res, next) => {
 
   Ticket.find({ wedding: weddingId})
     .populate("user")
-    .populate("wedding")
+    .populate({
+      path: "wedding",
+      populate: {
+        path: "gifts"
+      }
+    })
     .then((tickets) => {
       const wedding = tickets[0].wedding;
       res.render("dashboard/dashboard", {tickets, wedding})

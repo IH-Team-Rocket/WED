@@ -10,4 +10,10 @@
 
 <h2>Gifts</h2>
 
+{{#each wedding.gifts as |gift|}}
+
+<p>{{gift.name}}</p>
+
+{{/each}}
+
 <a href="/wedding/{{wedding.id}}/createGift">Button</a>
