@@ -1,0 +1,54 @@
+<div class="row justify-content-center mt-4">
+  <div class="col col-sm-8 col-md-6 col-lg-4">
+    <h1 class="my-4">Create new gift</h1>
+
+    <form action="/wedding/{{weddingId}}/ticket" method="post" class="">
+      <div class="input-group mb-2">
+        <select
+          name="second"
+          class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
+          placeholder="Second"
+          aria-label="Second"
+          value="{{ ticket.second }}"
+        >
+        <option selected disabled hidden value="none" class="grey_color">Select Second</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="fish">Fish</option>
+        <option value="meat">Meat</option>
+        </select>
+        {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
+      </div>
+      <div class="input-group mb-2">
+        <select
+          name="bus"
+          class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
+          placeholder="Bus"
+          aria-label="Bus"
+          value="{{ ticket.bus }}"
+        >
+        <option selected disabled hidden {{!-- value="none" --}} class="grey_color">Are you going by bus?</option>
+        <option value="true">Yes</option>
+        <option value="">No</option>
+        </select>
+        {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
+      </div>
+      <div class="input-group mb-2">
+        <select
+          name="hotel"
+          class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
+          placeholder="Hotel"
+          aria-label="Hotel"
+          value="{{ ticket.hotel }}"
+        >
+        <option selected disabled hidden {{!-- value="none" --}} class="grey_color">Will you stay at the hotel?</option>
+        <option value="true">Yes</option>
+        <option value="">No</option>
+        </select>
+        {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
+      </div>
+      <div class="input-group mb-2">
+        <button type="submit" class="btn btn-primary bg-light-green border-0">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

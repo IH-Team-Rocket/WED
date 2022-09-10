@@ -9,7 +9,6 @@ mongoose.connection.once('open', () => {
   mongoose.connection.db.dropDatabase()
     .then(() => {
       console.info('Db dropped')
-
       return Gift.create(GIFTS)
     })
     .then(createdGifts => {
@@ -20,7 +19,6 @@ mongoose.connection.once('open', () => {
     })
     .then(() => {
       console.log('Connection closed')
-
       process.exit(1)
     })
     .catch(err => {

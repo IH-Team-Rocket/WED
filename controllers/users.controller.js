@@ -80,7 +80,6 @@ module.exports.doRegister = (req, res, next) => {
       if(user){
         User.findById(id)
         .then((fakeUser) => {
-          console.log(user);
           if(!user.weddings.includes(fakeUser.weddings[0])){
             user.weddings.push(fakeUser.weddings[0])
             user.save()
@@ -109,7 +108,6 @@ module.exports.doRegister = (req, res, next) => {
                 
                     user.save()
                       .then(user => {
-                        console.log('justo antes de redirect a login', user);
                         res.redirect("/login")
                       })
                       .catch(err => {
