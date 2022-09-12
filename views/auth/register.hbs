@@ -1,10 +1,8 @@
-<div class="row justify-content-center mt-4">
-  <div class="col col-sm-8 col-md-6 col-lg-4">
-    <div class="intro-register-img mb-4">
-      <img src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png" width="100" class="mx-auto d-block" alt="intro" >
-    </div>
+<div class="form-container">
+  <div class="form-wrapper">
+    <h1>Register</h1>
     <form action="/register" method="post">
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="text"
           name="name"
@@ -16,7 +14,7 @@
         {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
       </div>
 
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="text"
           name="email"
@@ -28,7 +26,7 @@
         {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
       </div>
 
-      <div class="input-group mb-3">
+      <div class="form-pass">
         <input
           id="password-input"
           type="password"
@@ -43,14 +41,14 @@
         {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
       </div>
 
-      <div class="d-grid gap-2">
+      <div class="form-submit">
         <button type="submit" class="btn btn-primary bg-light-green border-0">Register</button>
-        <div class="d-grid gap-2 mt-2">
-          <a href="/login/google" class="btn btn-danger border-0">
-            <i class="fa fa-google"></i>
-            Register with Google
-          </a>
-        </div>
+        <a href="/login/google" class="btn btn-danger border-0">
+        <button class="google-btn">
+          <i class="fa fa-google"></i>
+          Login with Google
+        </button>
+        </a>
       </div>
     </form>
   </div>

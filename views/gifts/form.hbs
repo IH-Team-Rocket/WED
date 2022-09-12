@@ -2,7 +2,7 @@
   <div class="col col-sm-8 col-md-6 col-lg-4">
     <h1 class="my-4">Create new gift</h1>
 
-    <form action="/wedding/{{weddingId}}/createGift" method="post" class="">
+    <form action="/wedding/{{weddingId}}/createGift" method="post" enctype="multipart/form-data">
       <div class="input-group mb-2">
         <input
           type="text"
@@ -48,6 +48,15 @@
           placeholder="linkpls"
           aria-label="Gift price"
           value="{{ gift.link }}"
+        >
+        {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
+      </div>
+      <div class="input-group mb-2">
+        <input
+          type="file"
+          name="image"
+          class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
+          value="{{ gift.image }}"
         >
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>

@@ -22,3 +22,18 @@ module.exports.dashboard = (req, res, next) => {
       console.log("holi");
     })
 }
+
+module.exports.tokens = (req, res, next) => {
+  tokens = [],
+  User.find()
+    .then((users) => {
+      users.forEach((user) => {
+        tokens.push(user.token)
+        console.log(tokens);
+      })
+      res.render("dashboard/tokens", {users})
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}
