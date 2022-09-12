@@ -19,12 +19,12 @@ const giftSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        default: "",
+        default: "https://res.cloudinary.com/ghotics/image/upload/v1663004440/WED/wedding_gift_oio6qe.jpg",
     },
     link: {
         type: String,
         required: true,
-        match: ENLACE
+        match: ENLACE,
     },
     selected: {
         type: Boolean,

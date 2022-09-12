@@ -10,6 +10,9 @@ module.exports.create = (req, res, next) => {
 module.exports.doCreate = (req, res, next) => {
     const { id } = req.params
     req.body.wedding = id
+    if (req.file) {
+        req.body.image = req.file.path
+    }
     Gift.create(req.body)
         .then((gift) => {
             res.redirect(`/wedding/${id}/dashboard`)
