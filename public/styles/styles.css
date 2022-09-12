@@ -354,6 +354,7 @@ a, a:visited, a:hover, a:active {
 
 body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: antiquewhite;
 }
 
 .navbar {
@@ -419,12 +420,104 @@ button > a {
 	align-items: center;
 	justify-content: center;
 	width: 100vw;
-	background-color: #00000039;
 	background-image: url("https://images.unsplash.com/photo-1551468307-8c1e3c78013c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
 	background-size: cover;
-	background-blend-mode: multiply;
+	background-position: center;
 }
 
 .home-header > h1 {
-	color: white;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	color: black;
 }
+
+.home-section {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 50px 0px;
+}
+
+.home-card {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+	background-color: #ffffff;
+	width: 30vw;
+	overflow: hidden;
+
+}
+
+.home-card > h2 {
+	margin-bottom: 5px;
+	padding-left: 20px;
+}
+
+.home-card > p {
+	padding: 0px 20px;
+}
+
+.card-subtitle {
+	margin-top: 10px;
+	font-weight: 300;
+	color: grey;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	height: 80vh;
+}
+
+.form-wrapper {
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+	margin: 16vh 0;
+	padding: 0px 30px 20px 30px;
+}
+
+.form-wrapper > h1 {
+	text-align: center;
+	margin: 40px 0 30px 0;
+}
+
+.form-input > input{
+	width: 300px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	border-width: 0px 0em 2px 0; /* top right bottom left */
+	border-style: none none solid none;
+	border-color: #000 #000 #3d3d3d #000;
+}
+
+.form-pass > input {
+	width: 259px;
+	border-width: 0px 0em 2px 0; /* top right bottom left */
+	border-style: none none solid none;
+	border-color: #000 #000 #3d3d3d #000;
+	margin-bottom: 30px;
+}
+
+.form-submit > button {
+	background-color: teal;
+	color: white;
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 50px;
+	border-style: none;
+	padding: 10px 0px;
+}
+
+.google-btn {
+	color: white;
+	background-color: firebrick;
+	width: 100%;
+	border-radius: 50px;
+	border-style: none;
+	padding: 10px 0px;
+}
+
+
