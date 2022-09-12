@@ -26,6 +26,8 @@ module.exports.list = (req, res, next) => {
 			.then(wedding => {
 				res.render("gifts/list", {weddingId: id, wedding})
 			})
-			.catch()
+			.catch(err => {
+                console.error(err)
+            })
     
 }
