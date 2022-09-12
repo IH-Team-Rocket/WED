@@ -1,10 +1,10 @@
-<div class="row justify-content-center mt-4">
-  <div class="col col-sm-8 col-md-6 col-lg-4">
+<div class="form-container">
+  <div class="form-wrapper">
     <div class="intro-register-img mb-4">
       <img src="https://www.kadencewp.com/wp-content/uploads/2020/10/alogo-2.png" width="100" class="mx-auto d-block" alt="intro" >
     </div>
     <form action="/wedding/create" method="post">
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="text"
           name="title"
@@ -16,7 +16,7 @@
         {{#if errors.title}}<div class="invalid-feedback">{{ errors.title }}</div>{{/if}}
       </div>
 
-      <div class="input-group mb-3">
+      <div class="form-input">
         <input
           type="text"
           name="partnerOne"
@@ -27,7 +27,7 @@
         {{#if errors.partnerOne}}<div class="invalid-feedback">{{ errors.partnerOne }}</div>{{/if}}
       </div>
 
-      <div class="input-group mb-3">
+      <div class="form-input">
         <input
           type="text"
           name="partnerTwo"
@@ -38,7 +38,7 @@
         {{#if errors.partnerTwo}}<div class="invalid-feedback">{{ errors.partnerTwo }}</div>{{/if}}
       </div>
 
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="textarea"
           name="description"
@@ -50,7 +50,7 @@
         {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
       </div>
 
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="number"
           name="guests"
@@ -61,6 +61,7 @@
         >
         {{#if errors.guests}}<div class="invalid-feedback">{{ errors.guests }}</div>{{/if}}
       </div>
+      </br>
 
       {{!-- <div class="input-group mb-3">
         <input
@@ -73,7 +74,7 @@
         {{#if errors.location}}<div class="invalid-feedback">{{ errors.location }}</div>{{/if}}
       </div> --}}
 
-      <div class="d-grid gap-2">
+      <div class="form-submit">
         <button type="submit" class="btn btn-primary bg-light-green border-0">Create Wedding</button>
       </div>
     </form>
