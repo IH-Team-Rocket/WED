@@ -3,9 +3,7 @@
     <div class="card-head">
       <h1>{{wedding.title}}</h1>
       {{#if weddingAdmin}}
-        <button>
-          <a href="/wedding/{{wedding.id}}/dashboard">Dashboard</a>
-        </button>
+          <a href="/wedding/{{wedding.id}}/dashboard"><i class="fa-solid fa-gear"></i></a>
       {{/if}}
     </div>
     <div class="card-body">
@@ -13,10 +11,10 @@
       <p class="card-text">{{wedding.description}}</p>
       {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
       <div class="wedding-buttons">
-        <button>
+        <button class="primary-btn">
           <a href="/wedding/{{wedding.id}}/ticket">Create your Ticket here</a>
         </button>
-        <button>
+        <button class="secondary-btn">
           <a href="/wedding/{{wedding.id}}/gifts">Gift List</a>
         </button>
       </div>

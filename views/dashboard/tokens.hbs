@@ -1,7 +1,10 @@
 {{#each users as |user|}}
 
 {{#if user.token}}
-<p>{{user.token}}</p>
+  {{#if user.email}}
+  {{else}}
+    <p>{{user.token}}</p>
+  {{/if}}
 {{/if}}
 
 {{/each}}

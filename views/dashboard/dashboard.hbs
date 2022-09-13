@@ -1,23 +1,57 @@
-<h1>{{wedding.title}}</h1>
-
-<h2>Tickets</h2>
-
-{{#each tickets as |ticket|}}
-
-<p>{{ticket.user.name}}</p>
-
-{{/each}}
-
-<h2>Gifts</h2>
-
-{{#each wedding.gifts as |gift|}}
-
-<p>{{gift.name}}</p>
-
-<img src="{{gift.image}}"/>
-
-{{/each}}
-
 <a href="/wedding/{{wedding.id}}/createGift">Button</a>
 
 <a href="/wedding/{{wedding.id}}/tokens">Tokens</a>
+
+<div class="profile-container">
+  <div class="profile-title">
+    {{!-- <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="200" alt={{currentUser.name}} referrerpolicy="no-referrer"> --}}
+    <h1>{{wedding.title}}</h1>
+    <hr class="my-4">
+  </div>
+  <div class="weddings">
+    <div class="weddings-title">
+      <h2>Tickets</h2>
+    </div>
+    <div class="weddings-list row">
+      {{#each tickets as |ticket|}}
+      <div class="d-flex ol-xl-4 col-md-4 col-sm-6 col-xs-12 p-2">
+        <div class="wedding-card ">
+          <div>
+            <h2>{{ticket.user.name}}</h2>
+            <p>🍽 Second: {{ticket.second}}</p>
+            <p>🚌 Bus: {{#if ticket.bus}}Yes{{else}}No{{/if}}</p>
+            <p>🏨 Hotel: {{#if ticket.hotel}}Yes{{else}}No{{/if}}</p>
+          </div>
+        </div>
+      </div>
+   
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="weddings">
+    <div class="weddings-title">
+      <h2>Gifts</h2>
+    </div>
+    <div class="weddings-list row">
+      {{#each wedding.gifts as |gift|}}
+      <div class="d-flex ol-xl-4 col-md-4 col-sm-6 col-xs-12 p-2">
+        <div class="gift-card ">
+          <div>
+            <img src="{{gift.image}}" alt="">
+            <h2>{{gift.name}}</h2>
+            <p>{{gift.description}}</p>
+            <p>💶 Price: {{gift.price}}€</p>
+          </div>
+          <div>
+            <button class="primary-btn">
+              <a href="{{gift.link}}">Go to gift</a>
+            </button>
+          </div>
+        </div>
+      </div>
+   
+      {{/each}}
+    </div>
+  </div>
+</div>
