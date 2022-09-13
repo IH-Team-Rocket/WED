@@ -1,5 +1,3 @@
-<a href="/wedding/{{wedding.id}}/tokens">Tokens</a>
-
 <div class="profile-container">
   <div class="profile-title">
     {{!-- <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="200" alt={{currentUser.name}} referrerpolicy="no-referrer"> --}}
@@ -9,6 +7,11 @@
   <div class="weddings">
     <div class="weddings-title">
       <h2>Tickets</h2>
+      <a href="/wedding/{{wedding.id}}/tokens">
+        <button class="primary-btn">
+          Tokens
+        </button>
+      </a>
     </div>
     <div class="weddings-list row">
       {{#each tickets as |ticket|}}
@@ -40,7 +43,7 @@
       {{#each wedding.gifts as |gift|}}
       <div class="d-flex ol-xl-4 col-md-4 col-sm-6 col-xs-12 p-2">
         <div class="gift-card ">
-          <div>
+          <div class="gift-info">
             <img src="{{gift.image}}" alt="">
             <h3>{{gift.name}}</h3>
             <p>{{gift.description}}</p>

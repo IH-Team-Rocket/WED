@@ -1,10 +1,14 @@
-{{#each users as |user|}}
-
-{{#if user.token}}
-  {{#if user.email}}
-  {{else}}
-    <p>{{user.token}}</p>
-  {{/if}}
-{{/if}}
-
-{{/each}}
+<div class="tokens-container">
+  <h1>Tokens</h1>
+  </br>
+  {{#each users as |user|}}
+    {{#if user.token}}
+      {{#if user.email}}
+      {{else}}
+        <div class="token-card">
+          <p>{{user.token}}</p>
+        </div>
+      {{/if}}
+    {{/if}}
+  {{/each}}
+</div>

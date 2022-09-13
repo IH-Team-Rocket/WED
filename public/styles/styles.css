@@ -357,6 +357,10 @@ body {
 	background-color: antiquewhite;
 }
 
+button {
+	cursor: pointer;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -638,7 +642,8 @@ button > a {
 	width: 100%;
 }
 
-.gift-card h3, p, button{
+.gift-info > h3,
+.gift-info > p{
 	margin-left: 20px;
 }
 
@@ -648,5 +653,26 @@ button > a {
 	margin-bottom: 10px;
 	border-radius: 50px;
 	border-style: none;
-	padding: 10px 20px;	
+	padding: 10px 10px;
+	margin-left: 20px
+}
+
+.tokens-container {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.token-card {
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.2);
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.token-card > p {
+	margin: 0px;
 }
