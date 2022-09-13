@@ -638,6 +638,15 @@ button > a {
 	width: 100%;
 }
 
-.gift-card h2, p, button{
+.gift-card h3, p, button{
 	margin-left: 20px;
+}
+
+.gift-btn {
+	background-color: teal;
+	color: white;
+	margin-bottom: 10px;
+	border-radius: 50px;
+	border-style: none;
+	padding: 10px 20px;	
 }
