@@ -8,7 +8,7 @@ const weddingController = require("../controllers/wedding.controller")
 const giftsController = require ("../controllers/gifts.controller");
 const ticketController = require ("../controllers/ticket.controller");
 const dashboardController = require ("../controllers/dashboard.controller")
-//const fileUploader = require('../config/cloudinary.config');
+const fileUploader = require('../config/cloudinary.config');
 
 const SCOPES = [
   "profile",
@@ -42,7 +42,7 @@ router.get("/wedding/:id", authMiddlewares.isAuthenticated, weddingController.de
 //GIFT
 router.get("/wedding/:id/gifts", authMiddlewares.isAuthenticated, giftsController.list)
 router.get("/wedding/:id/createGift", authMiddlewares.isAuthenticated, giftsController.create)
-router.post("/wedding/:id/createGift", giftsController.doCreate)
+router.post("/wedding/:id/createGift", fileUploader.single('image'), giftsController.doCreate)
 
 //TICKET
 router.get("/wedding/:id/ticket", authMiddlewares.isAuthenticated, ticketController.create)
@@ -51,6 +51,7 @@ router.post("/wedding/:id/ticket", ticketController.doCreate)
 
 //DASHBOARD
 router.get("/wedding/:id/dashboard", authMiddlewares.isWeddingAdmin, dashboardController.dashboard)
+router.get("/wedding/:id/tokens", authMiddlewares.isWeddingAdmin, dashboardController.tokens)
 
 
 module.exports = router
