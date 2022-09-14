@@ -18,8 +18,8 @@ module.exports.dashboard = (req, res, next) => {
       const wedding = tickets[0].wedding;
       res.render("dashboard/dashboard", {tickets, wedding})
     })
-    .catch(() => {
-      console.log("holi");
+    .catch((err) => {
+      console.log(err);
     })
 }
 
@@ -28,10 +28,11 @@ module.exports.tokens = (req, res, next) => {
   User.find()
     .then((users) => {
       users.forEach((user) => {
-        tokens.push(user.token)
-        console.log(tokens);
+        if(user.token !== null) {
+          tokens.push(user.token)
+        }
       })
-      res.render("dashboard/tokens", {users})
+      res.render("dashboard/tokens", {users, tokensLength: tokens.length})
     })
     .catch((err) => {
       console.log(err);
