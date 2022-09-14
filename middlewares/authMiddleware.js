@@ -22,7 +22,6 @@ module.exports.isNotAuthenticated = (req, res, next) => {
 
     Wedding.findById(id)
       .then(wedding => {
-				console.log(wedding.admin, user.id);
         if(wedding.admin == user.id) {
           next();
       } else {

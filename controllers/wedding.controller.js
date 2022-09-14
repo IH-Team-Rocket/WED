@@ -31,7 +31,6 @@ module.exports.doCreate = (req, res, next) => {
         .then()
     })
     .catch((err) => {
-      console.error(err);
       next(err);
     });
 }
