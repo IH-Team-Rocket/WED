@@ -24,20 +24,25 @@ module.exports.dashboard = (req, res, next) => {
 }
 
 module.exports.tokens = (req, res, next) => {
-  const weddingId = req.params.id;
-
-  User.find()
-    .then((users) => {
-      const tokens = [];
-      users.forEach((user) => {
-        if(user.token !== null && user.weddings.includes(weddingId)) {
-          tokens.push(user.token)
-          console.log(tokens);
-        }
+  //const weddingId = req.params.id;
+  Wedding.findById(req.params.id)
+    .then(wedding => {
+      User.find()
+        .then((users) => {
+        const tokens = [];
+        users.forEach((user) => {
+          if(user.token !== null && user.weddings.includes(wedding.id)) {
+            tokens.push(user.token)
+          }
+        })
+        res.render("dashboard/tokens", {users, tokensLength: tokens.length, tokens, guests: wedding.guests})
       })
-      res.render("dashboard/tokens", {users, tokensLength: tokens.length, tokens})
-    })
+      .catch((err) => {
+        console.log(err);
+      })
+      })
     .catch((err) => {
-      console.log(err);
+      console.error(err)
     })
+  
 }
