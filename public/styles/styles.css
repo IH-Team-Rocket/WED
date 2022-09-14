@@ -679,3 +679,8 @@ button > a {
 .token-card > p {
 	margin: 0px;
 }
+
+.token-dashboard-content {
+	display: flex;
+
+}

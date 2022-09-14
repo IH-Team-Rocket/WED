@@ -1,23 +1,18 @@
 <div class="tokens-container">
   <div class="token-dashboard">
     <h1>Invitations</h1>
-    <div class="token-dashboard-conent">
-      <aside>
+    <div class="token-dashboard-content">
+      <div>
         <p>💌 Invited Guests: {{guests}}</p>
         <p>📨 Pending Invites: {{tokensLength}} </p>
-      </aside>
+      </div>
       <div>
-
+        {{#each tokens as |token|}}
+          <div class="token-card">
+            <p>{{token}}</p>
+          </div>
+        {{/each}}
       </div>
     </div>
-  </div>
-  </br>
-  {{#each tokens as |token|}}
-        <div class="token-card">
-          <p>{{token}}</p>
-        </div>
-  {{/each}}
-  <div>
-    {{tokensLength}}
   </div>
 </div>
