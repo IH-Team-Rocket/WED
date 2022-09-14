@@ -646,9 +646,20 @@ button > a {
 	width: 100%;
 }
 
+.gift-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
 .gift-info > h3,
 .gift-info > p{
 	margin-left: 20px;
+}
+
+.gift-info >  img {
+	height: 35vh;
+	align-self: center;
 }
 
 .gift-btn {
@@ -678,4 +689,9 @@ button > a {
 
 .token-card > p {
 	margin: 0px;
+}
+
+.token-dashboard-content {
+	display: flex;
+
 }
