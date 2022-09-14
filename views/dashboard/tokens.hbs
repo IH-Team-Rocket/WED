@@ -2,15 +2,10 @@
   <h1>Tokens</h1>
   
   </br>
-  {{#each users as |user|}}
-    {{#if user.token}}
-      {{#if user.email}}
-      {{else}}
+  {{#each tokens as |token|}}
         <div class="token-card">
-          <p>{{user.token}}</p>
+          <p>{{token}}</p>
         </div>
-      {{/if}}
-    {{/if}}
   {{/each}}
   <div>
     {{tokensLength}}
