@@ -16,7 +16,7 @@ module.exports.doCreate = (req, res, next) => {
       req.user.weddings.push(wedding.id)
       req.user.save()
       .then(() => {
-        res.redirect("/profile")
+        res.redirect(`/wedding/${wedding.id}/ticket`)
       })
       .catch((err) => {
         res.renderWithErrors("user/profile")
