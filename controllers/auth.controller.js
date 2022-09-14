@@ -36,6 +36,7 @@ module.exports.doRegister = (req, res, next) => {
 module.exports.doRegisterOrganiser = (req, res, next) => {
     const user = req.body
     user.type = "organiser"
+    req.body.token = null
 
     const renderWithErrors = (errors) => {
         res.render("auth/register", { errors, user })

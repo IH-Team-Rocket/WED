@@ -1,9 +1,9 @@
-<div class="row justify-content-center mt-4">
-  <div class="col col-sm-8 col-md-6 col-lg-4">
-    <h1 class="my-4">Create new gift</h1>
+<div class="form-container">
+  <div class="form-wrapper">
+    <h1>Create new ticket</h1>
 
     <form action="/wedding/{{weddingId}}/ticket" method="post" class="">
-      <div class="input-group mb-2">
+      <div class="form-input">
         <select
           name="second"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
@@ -12,13 +12,13 @@
           value="{{ ticket.second }}"
         >
         <option selected disabled hidden value="none" class="grey_color">Select Second</option>
-        <option value="vegetarian">Vegetarian</option>
-        <option value="fish">Fish</option>
-        <option value="meat">Meat</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Fish">Fish</option>
+        <option value="Meat">Meat</option>
         </select>
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-input">
         <select
           name="bus"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
@@ -32,7 +32,7 @@
         </select>
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-input">
         <select
           name="hotel"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
@@ -46,7 +46,7 @@
         </select>
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-submit">
         <button type="submit" class="btn btn-primary bg-light-green border-0">Create</button>
       </div>
     </form>

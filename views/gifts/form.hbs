@@ -1,57 +1,57 @@
-<div class="row justify-content-center mt-4">
-  <div class="col col-sm-8 col-md-6 col-lg-4">
+<div class="form-container">
+  <div class="form-wrapper">
     <h1 class="my-4">Create new gift</h1>
 
     <form action="/wedding/{{weddingId}}/createGift" method="post" enctype="multipart/form-data">
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="text"
           name="name"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
-          placeholder="name"
+          placeholder="Name"
           aria-label="Gift name"
           value="{{ gift.name }}"
         >
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="text"
           name="description"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
-          placeholder="Cool pink t-shirt"
+          placeholder="Description"
           aria-label="description"
           value="{{ gift.description }}"
         >
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="number"
           min="1"
           step="any"
           name="price"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
-          placeholder="price"
+          placeholder="Price"
           aria-label="Gift price"
           value="{{ gift.price }}"
         >
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="text"
           min="1"
           step="any"
           name="link"
           class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
-          placeholder="linkpls"
+          placeholder="Product URL"
           aria-label="Gift price"
           value="{{ gift.link }}"
         >
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
+      <div class="form-input">
         <input
           type="file"
           name="image"
@@ -60,8 +60,8 @@
         >
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-      <div class="input-group mb-2">
-        <button type="submit" class="btn btn-primary bg-light-green border-0">Create</button>
+      <div class="form-submit">
+        <button type="submit">Create</button>
       </div>
     </form>
   </div>

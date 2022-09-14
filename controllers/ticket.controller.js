@@ -26,8 +26,8 @@ module.exports.doCreate = (req, res, next) => {
             res.redirect(`/profile`)
           })
           .catch((err) => {
-            //console.error(req.body, err);
-            res.renderWithErrors("ticket/form")
+            console.error(req.body, err);
+            //res.renderWithErrors("ticket/form")
           })
         } else {
           Ticket.findOneAndUpdate(ticket, req.body, { new: true })

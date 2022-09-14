@@ -41,7 +41,11 @@ module.exports.detail = (req, res, next) => {
 
   Wedding.findById(id)
     .then((wedding) => {
-      res.render("wedding/detail", { wedding })
+      if (req.user.id == wedding.admin) {
+        weddingAdmin = true
+      }
+      console.log(weddingAdmin);
+      res.render("wedding/detail", { wedding, weddingAdmin })
     })
     .catch((err) => {
       next(createError(404, "Wedding not found"));

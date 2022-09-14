@@ -1,18 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col text-center mt-4">
-{{!--       <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="200" alt={{currentUser.name}} referrerpolicy="no-referrer">
- --}}      <h2>Hi {{currentUser.name}}, welcome to your profile!</h2>
-      <hr class="my-4">
-      <div class="weddings">
-        <h3>My weddings</h3>
-        {{#each user.weddings as |wedding|}}
-          <p>{{wedding.title}}</p>
-          <p>{{wedding.partnerOne}} & {{wedding.partnerTwo}}</p>
-          <a href="/wedding/{{wedding.id}}">Go To Wedding</a>
-        {{/each}}
+<div class="profile-container">
+  <div class="profile-title">
+    {{!-- <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="200" alt={{currentUser.name}} referrerpolicy="no-referrer"> --}}
+    <h1>Hi {{currentUser.name}}, welcome to your profile!</h1>
+    <hr class="my-4">
+  </div>
+  <div class="weddings">
+    <div class="weddings-title">
+      <h2>My weddings</h2>
+      <a href="/wedding/create">
+        <button class="primary-btn">
+          Create Wedding
+        </button>
+      </a>
+    </div>
+    <div class="weddings-list row">
+      {{#each user.weddings as |wedding|}}
+      <div class="d-flex ol-xl-4 col-md-4 col-sm-6 col-xs-12 p-2">
+        <div class="wedding-card ">
+          <div>
+            <h2>{{wedding.title}}</h2>
+            <p class="card-subtitle"><i>{{wedding.partnerOne}} & {{wedding.partnerTwo}}</i></p>
+            <p>{{wedding.description}}</p>
+          </div>
+          <button class="primary-btn">
+            <a href="/wedding/{{wedding.id}}">Go to Wedding</a>
+          </button>
+        </div>
       </div>
-      <a href="/wedding/create" class="btn btn-primary bg-light-green border-0">Create Wedding</a>
+   
+      {{/each}}
     </div>
   </div>
 </div>

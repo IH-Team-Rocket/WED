@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const SECONDOPTIONS = ["vegetarian", "fish", "meat"]
+const SECONDOPTIONS = ["Vegetarian", "Fish", "Meat"]
 
 const ticketSchema = new mongoose.Schema({
     second: {
