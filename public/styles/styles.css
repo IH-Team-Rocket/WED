@@ -576,6 +576,10 @@ button > a {
 	padding: 50px;
 }
 
+.wedding-create-title {
+	text-align: center;
+}
+
 .weddings-title {
 	display: flex;
 	justify-content: space-between;
@@ -658,7 +662,6 @@ button > a {
 }
 
 .tokens-container {
-	height: 80vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
